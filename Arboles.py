@@ -94,24 +94,35 @@ def contarElementos(arbol):
 #print ("de ",a3.izq.izq.der.valor)
 
 
+def buscar_ok(arbol, valor):
+    if arbol == None:
+        return False
+    if arbol.valor == valor:
+        return True
+    if valor < arbol.valor:
+        return buscar_ok(arbol.izq, valor)
+    return buscar_ok(arbol.der, valor)
+
 def buscar(ele,arbol):
-    print(arbol.valor, arbol.izq.valor, arbol.der.valor,ele)
+    #print(arbol.valor, arbol.izq.valor, arbol.der.valor,ele)
     if arbol.izq == None and arbol.der == None:
-        print "error"
+       # print "error"
         if arbol.valor == ele:
             return True
         else:
             return False
-    if (ele == arbol.valor) or (ele == arbol.izq.valor) or (arbol.der.valor == ele):
+    if (ele == arbol.valor):
         return True
     else:
-        if ele < arbol.valor or ele < arbol.izq.valor or ele < arbol.der.valor:
-            print ("e",arbol.izq.valor)
-            buscar(ele, arbol.izq)
+        if ele < arbol.valor:
+            #print ("e",arbol.izq.valor)
+            return buscar(ele, arbol.izq)
             
         else:
-            buscar(ele,arbol.der)
-            print "ho"
+            return buscar(ele,arbol.der)
+           # print "ho"
+            
+print("corregir",buscar(4,a3))
             
 #print("corregir",buscar(4,a3))
 
