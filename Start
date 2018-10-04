@@ -1,0 +1,21 @@
+def cargar_archivo(lab):
+    return [x.split(" ") for x in [y.strip("\n") for y in open(lab).readlines()]][:-2]
+
+def cargar_inicio(lab):
+    return [x.split(" ") for x in [y.strip("\n") for y in open(lab).readlines()]][-2][0].split(",")
+
+def cargar_fin(lab):
+    return [x.split(" ") for x in [y.strip("\n") for y in open(lab).readlines()]][-1][0].split(",")
+
+
+def resolver(lab):
+    print "laberinto : "
+    print cargar_archivo(lab)
+    print "inicio : "
+    print cargar_inicio(lab)
+    print "fin : "
+    print cargar_fin(lab)
+    
+
+
+resolver("lab_bin.in")
